@@ -1,0 +1,21 @@
+.welcome{
+    text-align: center;
+}
+
+.welcome p{
+    font-size: 70px;
+}
+
+.search-btn{
+    margin: 0 50px 0 0px;
+}
+
+.srch-opn{
+    margin: 0px 0px 0px 0px;
+    width: auto;
+}
+
+.srch-opn label{
+    font-weight: bold;
+    
+}
