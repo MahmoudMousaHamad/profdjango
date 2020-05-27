@@ -1,8 +1,9 @@
 from django.urls import path, include
-from .views import index
-from . import views
+from .views import index, addSchool, addProf, register
 urlpatterns = [
-    path('', views.index, name="index"),
-    path('register', views.register, name="register"),
+    path('', index, name="index"),
+    path('add_school', addSchool, name="addSchool"),
+    path('add_prof', addProf, name="addProf"),
+    path('register', register, name="register"),
     path('', include("django.contrib.auth.urls")),
 ]

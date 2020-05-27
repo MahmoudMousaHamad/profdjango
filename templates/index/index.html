@@ -1,31 +1,39 @@
-{% extends "base.html" %} 
-{% block title %}{{ title }}{% endblock %} 
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
 
-{%block body%} 
+{%block body%}
 
-    <div class="welcome">
-        <p>أهلا و سهلا بك!</p>
+<div class="welcome">
+    <p>أهلا و سهلا بك!</p>
+</div>
+
+<form method="GET">
+    <div class="form-group row">
+        <input type="text" class="form-control col-sm-10" placeholder="ابحث..." required>
+        <button class="btn btn-primary col-sm search-btn" type="submit">ابحث <i class="fas fa-search"></i></button>
     </div>
 
-    <form method="GET">
-        <div class="form-group row">
-            <input type="text" class="form-control col-sm-10" placeholder="ابحث..." required>
-            <button class="btn btn-primary col-sm search-btn" type="submit">ابحث <i class="fas fa-search"></i></button>
+    <div class="row srch-opn">
+        <p>ابحث عن:</p>
+        <div class="col-sm-2 option">
+            <input type="radio" id="prof" name="search-option" value="prof" required>
+            <label for="prof">مُدرس</label>
         </div>
-        
-        <div class="row srch-opn">
-            <p>ابحث عن:</p>
-            <div class="col-sm-2 option">
-                <input type="radio" id="prof" name="search-option" value="prof" required>
-                <label for="prof">مُدرس</label>
-            </div>
-            <div class="col-sm-2 option">
-                <input type="radio" id="school" name="search-option" value="school">
-                <label for="school">جامعة</label>
-            </div>
-        </div>       
+        <div class="col-sm-2 option">
+            <input type="radio" id="school" name="search-option" value="school">
+            <label for="school">جامعة</label>
+        </div>
+    </div>
 
-    </form>
+</form>
+<br>
+<br>
+<div class="col-sm-5">
+    <a href="{% url 'addProf'%}" class="btn btn-outline-dark btn-lg btn-block"><i
+            class="fas fa-chalkboard-teacher ml-3"></i>اضف مدرس</a>
+    <a href="{% url 'addSchool'%}" class="btn btn-success btn-lg btn-block"> <i class="fas fa-university ml-3"></i>اضف
+        جامعة</a>
+</div>
 
 
 {%endblock%}

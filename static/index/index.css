@@ -19,3 +19,11 @@
     font-weight: bold;
     
 }
+
+button, label{
+    float: right;
+}
+
+.formTitle{
+    text-align: right;
+}
