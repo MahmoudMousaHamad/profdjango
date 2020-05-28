@@ -27,3 +27,8 @@ button, label{
 .formTitle{
     text-align: right;
 }
+
+.username-holder{
+    margin: 0 0 0 5px;
+    color:gray;
+}

@@ -18,26 +18,18 @@
 <body>
 
   <nav class="navbar navbar-light bg-light shadow-sm mb-3">
-    <a class="navbar-brand logo" href="">قيم مدرسك<i class="fas fa-chalkboard-teacher mr-2"></i></a>
-
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-    </div>
-
+    <a class="navbar-brand logo" href="{% url 'index' %}">قيم مدرسك<i class="fas fa-chalkboard-teacher mr-2"></i></a>
     <form class="form-inline">
+
+      {% if user.is_authenticated %}
+      <p class="username-holder"> {{ user.username }} </p>
+      <a class="btn bg-white" href="{% url 'logout' %}">تسجيل خروج</a>
+      {% else %}
       <a class="btn btn-primary my-2 my-sm-0 ml-3" href="{% url 'register'%}">انشئ حساب</a>
-      <a class="btn btn-outline-secondary my-2 my-sm-0" href="{% url 'login'%}">تسجيل دخول</a>
+      <a class="btn btn-outline-secondary my-2 my-sm-0 ml-3" href="{% url 'login'%}">تسجيل دخول</a>
+      {% endif %}
     </form>
+
   </nav>
   <div class="container">
     {%block body%} {%endblock%}
