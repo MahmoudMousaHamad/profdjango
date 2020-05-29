@@ -91,10 +91,49 @@ class ProfRating(models.Model):
     textbook_req = models.BooleanField(default=True)
     comment = models.TextField()
     grade = models.CharField(max_length=1, choices=LETTER_GRADES)
-    likes_num = models.IntegerField(validators=[MinValueValidator(0)],)
-    dislikes_num = models.IntegerField(validators=[MinValueValidator(0)],)
+    likes_num = models.IntegerField(
+        validators=[MinValueValidator(0)], default=0)
+    dislikes_num = models.IntegerField(
+        validators=[MinValueValidator(0)], default=0)
 
     created_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return "Rating of " + self.prof.__str__ + " by " + self.user.__str__
+        return "Rating of " + self.prof.first_name + self.prof.last_name + " by " + self.user.username
+
+
+class SchoolRating(models.Model):
+    school = models.ForeignKey(School, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    reputation = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    location = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    opportunities = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    facilities = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    internet = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    food = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    clubs = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    social = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    happiness = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    safety = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    beauty = models.FloatField(
+        validators=[MinValueValidator(0.0), MaxValueValidator(5.0)],)
+    comment = models.TextField()
+    grade = models.CharField(max_length=1, choices=LETTER_GRADES)
+    likes_num = models.IntegerField(
+        validators=[MinValueValidator(0)], default=0)
+    dislikes_num = models.IntegerField(
+        validators=[MinValueValidator(0)], default=0)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return "Rating of " + self.school.name + " by " + self.user.username

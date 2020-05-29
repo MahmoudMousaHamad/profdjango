@@ -28,12 +28,13 @@
 </form>
 <br>
 <br>
+{% if request.user.is_authenticated %}
 <div class="col-sm-5">
     <a href="{% url 'addProf'%}" class="btn btn-outline-dark btn-lg btn-block"><i
             class="fas fa-chalkboard-teacher ml-3"></i>اضف مدرس</a>
     <a href="{% url 'addSchool'%}" class="btn btn-success btn-lg btn-block"> <i class="fas fa-university ml-3"></i>اضف
         جامعة</a>
 </div>
-
+{% endif %}
 
 {%endblock%}

@@ -5,10 +5,12 @@
 {% load crispy_forms_tags %}
 
 {% block body %}
-<form method="POST" class="from-group">
+<form method="POST">
     {% csrf_token %}
-    {{ form|crispy }}
-    <p>Don't have an accoount? Create one <a href="/register">here</a></p>
-    <button type="submit" class="btn btn-success">Login</button>
+    <div class="col-5 login-countainer">
+        {{ form|crispy }}
+        <p>Don't have an accoount? Create one <a href="/register">here</a></p>
+        <button type="submit" class="btn btn-success">Login</button>
+    </div>
 </form>
 {% endblock %}
